@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gama.itau.hospital.model.Paciente;
+import br.gama.itau.hospital.dto.PacienteDTO;
 import br.gama.itau.hospital.service.PacienteService;
 
 @RestController
@@ -19,7 +19,7 @@ public class PacienteController {
     private PacienteService service;
 
     @GetMapping
-    public ResponseEntity<List<Paciente>> getAll() {
-        return ResponseEntity.ok(service.getAll());
+    public ResponseEntity<List<PacienteDTO>> getAll() {
+        return ResponseEntity.ok(service.getAllDTO());
     }
 }
