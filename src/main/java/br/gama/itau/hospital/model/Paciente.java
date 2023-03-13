@@ -10,12 +10,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +44,8 @@ public class Paciente {
     // Ao preencher os dados dos atendimentos, não preencha os dados do paciente destes atendimentos
     @JsonIgnoreProperties("paciente")
     private List<Atendimento> atendimentos;
+
+    public static Object builder() {
+        return null;
+    }
 }
